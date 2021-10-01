@@ -1,6 +1,11 @@
-import {observable, action} from 'mobx';
+import {observable, action, makeObservable} from 'mobx';
 
 class AuthStore {
+  // 修复 mobx 版本6 的 bug
+  constructor() {
+    makeObservable(this)
+  }
+
   // 状态
   @observable isLogin = false;
   @observable isLoading = false;
