@@ -1,7 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 import LogoUrl from '../logo.svg'
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
+import {Button} from 'antd';
 
 const Header = styled.header`
   display: flex;
@@ -13,6 +14,7 @@ const Header = styled.header`
 const Logo = styled.img`
   height: 30px;
 `;
+// 因为 NavLink 已经是个组件，需要这种写法
 const StyledLink = styled(NavLink)`
   color: #fff;
   margin-left: 30px;
@@ -24,11 +26,13 @@ const StyledLink = styled(NavLink)`
 const Login = styled.div`
   margin-left: auto;
 `
-const Button = styled.button`
+const StyledButton = styled(Button)`
   margin-left: 10px;
 `
 
 function Component() {
+  const [isLogin, setIsLogin] = useState(false)
+
   return (
     <>
     <Header>
@@ -39,12 +43,17 @@ function Component() {
         <StyledLink to="/about" activeClassName="active">关于我</StyledLink>
       </nav>
       <Login>
-        <Button>
-          <StyledLink to="/login" activeClassName="active">登录</StyledLink>
-        </Button>
-        <Button>
-          <StyledLink to="/register" activeClassName="active">注册</StyledLink>
-        </Button>
+        {
+          isLogin ? <>
+            poyapli<StyledButton type="primary" onClick={()=>{setIsLogin(false)}}>注销</StyledButton>
+
+          </> : <>
+            <StyledButton type="primary" onClick={()=>{setIsLogin(true)}}>登录</StyledButton>
+            <StyledButton type="primary">注册</StyledButton>
+          </>
+        }
+
+
       </Login>
     </Header>
     </>
