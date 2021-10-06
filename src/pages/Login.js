@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import styled from 'styled-components';
+import {useStores} from "../stores";
 
 const Wrapper = styled.div`
   max-width: 600px;
@@ -16,8 +17,16 @@ const Title = styled.h1`
 `;
 
 const Component = () => {
+  const {Auth} = useStores();
+
   const onFinish = (values) => {
     console.log('Success:', values);
+    Auth.login()
+      .then(()=>{
+        console.log('登录成功，跳转到首页')
+      }).catch(()=>{
+        console.log('登陆失败')
+    })
   };
 
   const onFinishFailed = (errorInfo) => {

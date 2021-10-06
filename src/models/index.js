@@ -29,8 +29,6 @@ const Auth = {
   }
 };
 
-
-
 export {
   Auth
 };
