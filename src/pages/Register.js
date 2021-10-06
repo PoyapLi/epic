@@ -2,7 +2,6 @@ import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import styled from 'styled-components';
 import { useStores } from "../stores";
-import {AuthStore} from "../stores/auth";
 
 const Wrapper = styled.div`
   max-width: 600px;

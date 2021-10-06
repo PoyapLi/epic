@@ -17,11 +17,13 @@ const Title = styled.h1`
 `;
 
 const Component = () => {
-  const {Auth} = useStores();
+  const {AuthStore} = useStores();
 
   const onFinish = (values) => {
     console.log('Success:', values);
-    Auth.login()
+    AuthStore.setUsername(values.username);
+    AuthStore.setPassword(values.password);
+    AuthStore.login()
       .then(()=>{
         console.log('登录成功，跳转到首页')
       }).catch(()=>{
