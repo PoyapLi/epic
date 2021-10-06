@@ -5,7 +5,6 @@ AV.init({
   appKey: "u3geYHoTiO7vAnBWWmIbqzkn",
   serverURL: "https://yvuubyth.lc-cn-n1-shared.com"
 });
-console.log('start...');
 
 const Auth = {
   register(username, password){

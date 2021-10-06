@@ -1,11 +1,8 @@
-import {observable, action, makeObservable} from 'mobx';
+import {observable, action} from 'mobx';
 import {Auth} from '../models';
+import UserStore from './user';
 
 class AuthStore {
-  // 修复 mobx 版本6 的 bug
-  constructor() {
-    makeObservable(this)
-  }
   // 状态
   @observable values = {
     username: '',
@@ -29,10 +26,10 @@ class AuthStore {
     return new Promise((resolve, reject) => {
       Auth.login(this.values.username, this.values.password)
         .then(user => {
-          console.log('登录成功');
+          UserStore.pullUser();
           resolve(user);
         }).catch(err => {
-          console.log('登录失败');
+          UserStore.resetUser();
           reject(err);
       })
     })
@@ -42,18 +39,19 @@ class AuthStore {
     return new Promise((resolve, reject) => {
       Auth.register(this.values.username, this.values.password)
         .then(user => {
-          console.log('注册成功');
+          UserStore.pullUser();
           resolve(user);
         }).catch(err => {
-        console.log('注册失败');
-        reject(err);
+          UserStore.resetUser();
+          reject(err);
       })
     })
   }
 
   @action logout(){
-    Auth.logout()
+    Auth.logout();
+    UserStore.resetUser();
   }
 }
 
-export { AuthStore };
+export default new AuthStore();
