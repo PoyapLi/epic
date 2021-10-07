@@ -2,6 +2,7 @@ import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import styled from 'styled-components';
 import {useStores} from "../stores";
+import {useHistory} from "react-router-dom";
 
 const Wrapper = styled.div`
   max-width: 600px;
@@ -17,6 +18,9 @@ const Title = styled.h1`
 `;
 
 const Component = () => {
+
+  const history = useHistory();
+
   const {AuthStore} = useStores();
 
   const onFinish = (values) => {
@@ -25,7 +29,8 @@ const Component = () => {
     AuthStore.setPassword(values.password);
     AuthStore.login()
       .then(()=>{
-        console.log('登录成功，跳转到首页')
+        console.log('登录成功，跳转到首页');
+        history.push('/')
       }).catch(()=>{
         console.log('登陆失败')
     })
@@ -48,7 +53,7 @@ const Component = () => {
       <Form
         name="basic"
         labelCol={{
-          span: 6,
+          span: 4,
         }}
         wrapperCol={{
           span: 18,
