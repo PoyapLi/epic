@@ -1,5 +1,5 @@
-import {observable, action, makeObservable} from 'mobx';
-import {Auth, Uploader} from '../models';
+import {observable, action} from 'mobx';
+import {Uploader} from '../models';
 
 class ImageStore {
   // 状态
@@ -19,7 +19,7 @@ class ImageStore {
   @action upload(){
     this.isUploading = true;
     return new Promise((resolve, reject) => {
-      Uploader.add(this.file, this.filename
+      Uploader.add(this.file, this.filename)
         .then(serverFile => {
           this.serverFile = serverFile;
           resolve(serverFile);
@@ -27,7 +27,7 @@ class ImageStore {
           console.error('上传失败')
         }).finally(()=>{
           this.isUploading = false;
-        }))
+        })
     })
   }
 }
