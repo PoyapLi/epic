@@ -1,9 +1,9 @@
 import AV, { Query, User } from "leancloud-storage";
 
 AV.init({
-  appId: "yVUuBYTHKA11YPfJAcAmA1IP-gzGzoHsz",
-  appKey: "u3geYHoTiO7vAnBWWmIbqzkn",
-  serverURL: "https://yvuubyth.lc-cn-n1-shared.com"
+  appId: "rErgaqLzvHIOz8X31n3fvtG0-MdYXbMMI",
+  appKey: "93eSJ2CjU9BqCFMwhu2JaGMP",
+  serverURL: "https://lc-gluttony.s3.amazonaws.com"
 });
 
 const Auth = {
