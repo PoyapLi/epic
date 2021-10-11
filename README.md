@@ -1,3 +1,9 @@
-### 1.`yarn install`
+# 1.安装依赖
 
-### 2.`yarn start`
+## `yarn install`
+
+# 2.运行
+
+## `yarn start`
+
+# 项目介绍
