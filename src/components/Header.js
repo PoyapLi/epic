@@ -8,32 +8,37 @@ import { observer } from 'mobx-react';
 
 const Header = styled.header`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px 100px;
+  padding: 10px 22px;
   background: linear-gradient(193deg, rgba(0,0,0,1) 0%, rgba(4,245,255,1) 100%);
   color: #fff;
 `;
 const Logo = styled.img`
-  height: 36px;
+  display: flex;
+  height: 32px;
 `;
 // 因为 NavLink 已经是个组件，需要这种写法
 const StyledLink = styled(NavLink)`
   color: #fff;
-  margin-left: 30px;
+  margin-left: 16px;
+  padding-bottom: 2px;
+  font-size: 16px;
   
   &:hover {
     color: #fff;
   }
 
   &.active {
-    border-bottom: 2px solid rgb(183,226,249);
+    border-bottom: 2px solid dodgerblue;
   }
 `
-const Login = styled.span`
+const Login = styled.div`
   margin-left: auto;
 `
 const StyledButton = styled(Button)`
-  margin-left: 10px;
+  margin-left: 12px;
+  border-radius: 12px;
 `
 
 const  Component = observer(() => {
@@ -64,8 +69,8 @@ const  Component = observer(() => {
         <Logo src={LogoUrl} alt=""/>
         <nav>
           <StyledLink to="/" activeClassName="active" exact>首页</StyledLink>
-          <StyledLink to="/history" activeClassName="active">上传历史</StyledLink>
-          <StyledLink to="/about" activeClassName="active">关于我</StyledLink>
+          <StyledLink to="/history" activeClassName="active">历史</StyledLink>
+          <StyledLink to="/about" activeClassName="active">关于</StyledLink>
         </nav>
         <Login>
           {
