@@ -19,9 +19,8 @@ const Title = styled.h1`
 
 const Component = () => {
 
-  const history = useHistory();
-
   const {AuthStore} = useStores();
+  const history = useHistory();
 
   const onFinish = (values) => {
     console.log('Success:', values);
@@ -31,7 +30,8 @@ const Component = () => {
       .then(()=>{
         console.log('登录成功，跳转到首页');
         history.push('/')
-      }).catch(()=>{
+      }).catch((e)=>{
+        console.log(e)
         console.log('登陆失败')
     })
   };
