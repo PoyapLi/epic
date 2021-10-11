@@ -1,5 +1,6 @@
 import {observable, action} from 'mobx';
 import {Uploader} from '../models';
+import {message} from 'antd';
 
 class ImageStore {
   // 状态
@@ -18,13 +19,14 @@ class ImageStore {
 
   @action upload(){
     this.isUploading = true;
+    this.serverFile = null;
     return new Promise((resolve, reject) => {
       Uploader.add(this.file, this.filename)
         .then(serverFile => {
           this.serverFile = serverFile;
           resolve(serverFile);
         }).catch(err => {
-          console.error('上传失败')
+          message.error('上传失败')
         }).finally(()=>{
           this.isUploading = false;
         })
