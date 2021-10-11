@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import {observer} from 'mobx-react';
 import {useStores} from '../stores';
 import InfiniteScroll from 'react-infinite-scroller';
-import {List, Spin} from 'antd';
+import {List, Spin, Button} from 'antd';
 import styled from 'styled-components';
 
 const Img = styled.img`
@@ -10,6 +10,10 @@ const Img = styled.img`
   height: 120px;
   object-fit: contain;  //对图片进行剪切，保留原始比例
   border: 1px solid #eee;
+`
+
+const StyledButton = styled(Button)`
+  border-radius: 12px;
 `
 
 const Component = observer (() => {
@@ -48,9 +52,9 @@ const Component = observer (() => {
                 <div>
                   <h5>{item.attributes.filename}</h5>
                 </div>
-                <div>
-                  <a target="_blank" href={item.attributes.url.attributes.url}>{item.attributes.url.attributes.url}</a>
-                </div>
+                <StyledButton>
+                  <a target="_blank" href={item.attributes.url.attributes.url}>点击查看原图</a>
+                </StyledButton>
               </List.Item>
           }
         >

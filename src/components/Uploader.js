@@ -1,9 +1,10 @@
 import React,{useRef} from 'react';
 import {useStores} from '../stores';
 import {observer, useLocalStore} from 'mobx-react';
-import {Upload, message, Spin} from 'antd';
+import {Upload, message, Spin, Button} from 'antd';
 import {InboxOutlined} from '@ant-design/icons';
 import styled from 'styled-components';
+import copy from 'copy-to-clipboard';
 
 const {Dragger} = Upload;
 
@@ -19,7 +20,14 @@ const H1 = styled.h1`
 `
 
 const Image = styled.img`
-  max-width: 300px;
+  max-width: 200px;
+`
+
+const StyledButton = styled(Button)`
+  border-radius: 12px;
+  margin-left: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
 `
 
 const Component = observer(() => {
@@ -49,12 +57,9 @@ const Component = observer(() => {
     }
   }))
 
-  const bindWidthChange = () => {
-    store.setWidth(ref1.current.value);
-  }
-
-  const bindHeightChange = () => {
-    store.setHeight(ref2.current.value);
+  const handleCopy= (value) =>{
+    copy(value)
+    message.info('链接复制成功')
   }
 
   const props = {
@@ -106,22 +111,14 @@ const Component = observer(() => {
           <dl>
             <dt><h3><strong>线上地址</strong></h3></dt>
             <dd>
-              <a target="_blank" href={ ImageStore.serverFile.attributes.url.attributes.url }>{ ImageStore.serverFile.attributes.url.attributes.url }</a>
+              <a target="_blank" href={ ImageStore.serverFile.attributes.url.attributes.url }>点击查看原图</a>
+              <StyledButton type="primary" onClick={()=>handleCopy(ImageStore.serverFile.attributes.url.attributes.url)}>复制链接</StyledButton>
             </dd>
             <dt><h3><strong>文件名</strong></h3></dt>
             <dd>{ImageStore.filename}</dd>
             <dt><h3><strong>图片预览</strong></h3></dt>
             <dd>
               <Image src={ ImageStore.serverFile.attributes.url.attributes.url } alt=""/>
-            </dd>
-            <dt><h3><strong>更多尺寸预览</strong></h3></dt>
-            <dd>
-              <input ref={ref1} onChange={bindWidthChange} type="" placeholder="最大宽度（可选）"/>-
-              <input ref={ref2} onChange={bindHeightChange} type="" placeholder="最大高度（可选）"/>
-            </dd>
-            <dd>
-              <dt><h3><strong>自定义尺寸预览</strong></h3></dt>
-              <a target="_blank" href={store.fullStr}>{store.fullStr}</a>
             </dd>
           </dl>
         </Result> : null
