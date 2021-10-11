@@ -11,7 +11,7 @@ const Footer = styled.footer`
 function Component(){
     return (
         <Footer>
-            <p>Footer</p>
+            <p>github.com/PoyapLi</p>
         </Footer>
     )
 }

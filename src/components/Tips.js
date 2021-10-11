@@ -4,11 +4,13 @@ import { observer } from "mobx-react";
 import styled from 'styled-components';
 
 const Tips = styled.div`
-  background: orange;
+  font-size: 16px;
+  background: skyblue;
   padding: 10px;
   margin: 30px 0;
   color: #fff;
   border-radius: 4px;
+  text-align: center;
 `
 
 const Component = observer( ({children}) => {

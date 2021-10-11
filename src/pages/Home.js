@@ -12,7 +12,7 @@ const Home = observer (() => {
     return (
       // 这是 React.Fragment 标签的简写
       <>
-        <Tips>请先登录！</Tips>
+        <Tips>温馨提示：阁下请先登录再操作哦！</Tips>
         <Uploader />
       </>
     )

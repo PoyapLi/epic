@@ -53,10 +53,10 @@ const Component = () => {
       <Form
         name="basic"
         labelCol={{
-          span: 4,
+          span: 6,
         }}
         wrapperCol={{
-          span: 18,
+          span: 12,
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -97,7 +97,7 @@ const Component = () => {
 
         <Form.Item
           wrapperCol={{
-            offset: 8,
+            offset: 6,
             span: 16,
           }}
         >
