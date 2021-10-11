@@ -68,7 +68,7 @@ const Component = observer(() => {
             <dd>{ImageStore.filename}</dd>
             <dt>图片预览</dt>
             <dd>
-              <Image src="{ ImageStore.serverFile.attributes.url.attributes.url }" alt=""/>
+              <Image src={ ImageStore.serverFile.attributes.url.attributes.url } alt=""/>
             </dd>
             <dt>更多尺寸</dt>
             <dd>
