@@ -19,7 +19,8 @@ class HistoryStore {
     this.isLoading = true;
     Uploader.find({page: this.page, limit: this.limit})
       .then(newList => {
-        this.append(newList)
+        this.append(newList);
+        this.page++;
         if(newList.length < this.limit) {
           this.hasMore = false;
         }
@@ -31,4 +32,4 @@ class HistoryStore {
   }
 }
 
-export default new AuthStore();
+export default new HistoryStore();
