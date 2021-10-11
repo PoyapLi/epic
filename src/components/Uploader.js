@@ -102,24 +102,25 @@ const Component = observer(() => {
       </Spin>
       {
         ImageStore.serverFile ? <Result>
-          <H1>上传结果</H1>
+          <H1>阁下最近一次上传的图片</H1>
           <dl>
-            <dt>线上地址</dt>
+            <dt><h3><strong>线上地址</strong></h3></dt>
             <dd>
               <a target="_blank" href={ ImageStore.serverFile.attributes.url.attributes.url }>{ ImageStore.serverFile.attributes.url.attributes.url }</a>
             </dd>
-            <dt>文件名</dt>
+            <dt><h3><strong>文件名</strong></h3></dt>
             <dd>{ImageStore.filename}</dd>
-            <dt>图片预览</dt>
+            <dt><h3><strong>图片预览</strong></h3></dt>
             <dd>
               <Image src={ ImageStore.serverFile.attributes.url.attributes.url } alt=""/>
             </dd>
-            <dt>更多尺寸</dt>
+            <dt><h3><strong>更多尺寸预览</strong></h3></dt>
             <dd>
-              <input ref={ref1} onChange={bindWidthChange} type="" placeholder="最大宽度（可选）"/>
+              <input ref={ref1} onChange={bindWidthChange} type="" placeholder="最大宽度（可选）"/>-
               <input ref={ref2} onChange={bindHeightChange} type="" placeholder="最大高度（可选）"/>
             </dd>
             <dd>
+              <dt><h3><strong>自定义尺寸预览</strong></h3></dt>
               <a target="_blank" href={store.fullStr}>{store.fullStr}</a>
             </dd>
           </dl>
