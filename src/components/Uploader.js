@@ -66,6 +66,16 @@ const Component = observer(() => {
         message.warning('请先登录！');
         return false;
       }
+      window.file = file;
+      if(!/(svg$)|(png$)|(jpg$)|(jpeg$)|(git$)/ig.test(file.type)){
+        message.error('只能上传 png/svg/jpg/git 格式的图片！')
+        return false
+      }
+      if(file.size > 1024*1024) {
+        message.error('图片大小不能超过 1M')
+        return false
+      }
+
       ImageStore.upload()
         .then((serverFile)=>{
           console.log('上传成功');
@@ -85,7 +95,7 @@ const Component = observer(() => {
         </p>
         <p className="ant-upload-text">点击或者拖拽图片到此处进行上传</p>
         <p className="ant-upload-hint">
-          支持单次或批量上传，严禁上传公司资料或其他类型文件
+          仅支持 .png/.gif/.jpg/.svg 格式的图片，图片大小不能超过1M
         </p>
       </Dragger>
       {
