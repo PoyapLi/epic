@@ -14,18 +14,22 @@ const Result = styled.div`
   padding: 20px;
 `
 
+const StyledA = styled.a`
+  color: rgb(24,144,255);
+`
+
 const H1 = styled.h1`
   margin: 20px 0;
   text-align: center;
 `
 
 const Image = styled.img`
-  max-width: 200px;
+  max-width: 250px;
 `
 
 const StyledButton = styled(Button)`
   border-radius: 12px;
-  margin-left: 6px;
+  margin-right: 6px;
   padding-left: 6px;
   padding-right: 6px;
 `
@@ -111,7 +115,9 @@ const Component = observer(() => {
           <dl>
             <dt><h3><strong>线上地址</strong></h3></dt>
             <dd>
-              <a target="_blank" href={ ImageStore.serverFile.attributes.url.attributes.url }>点击查看原图</a>
+              <StyledButton type="primary">
+                <a target="_blank" href={ ImageStore.serverFile.attributes.url.attributes.url }>查看原图</a>
+              </StyledButton>
               <StyledButton type="primary" onClick={()=>handleCopy(ImageStore.serverFile.attributes.url.attributes.url)}>复制链接</StyledButton>
             </dd>
             <dt><h3><strong>文件名</strong></h3></dt>
