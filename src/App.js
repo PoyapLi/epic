@@ -8,6 +8,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import * as url from "url";
 
 // import Home from './pages/Home';
 // import History from "./pages/History";
@@ -18,7 +19,6 @@ const History = lazy(() => import('./pages/History'));
 const About = lazy(() => import('./pages/About'));
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
-
 
 function App() {
   return (
