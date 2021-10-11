@@ -30,7 +30,7 @@ const StyledLink = styled(NavLink)`
   }
 
   &.active {
-    border-bottom: 2px solid dodgerblue;
+    border-bottom: 4px solid #015b5f;
   }
 `
 const Login = styled.div`
