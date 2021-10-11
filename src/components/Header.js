@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import LogoUrl from '../logo.svg'
 import {NavLink, useHistory} from 'react-router-dom';
 import styled from 'styled-components';
@@ -54,6 +54,10 @@ const  Component = observer(() => {
     console.log('跳转到注册页面');
     history.push('/register');
   };
+
+  useEffect(()=>{
+    UserStore.pullUser()
+  },[])
 
   return (
       <Header>

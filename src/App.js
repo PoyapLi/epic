@@ -30,9 +30,9 @@ function App() {
             {/*如果不加 exact 参数，任何路由都是首页了*/}
             <Route path="/" exact component={Home}/>
             <Route path="/history" component={History}/>
-            <Route path="/about" exact component={About}/>
-            <Route path="/login" exact component={Login}/>
-            <Route path="/register" exact component={Register}/>
+            <Route path="/about" component={About}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/register" component={Register}/>
           </Switch>
         </Suspense>
       </main>
