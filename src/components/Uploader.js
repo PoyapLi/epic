@@ -99,7 +99,7 @@ const Component = observer(() => {
         <p className="ant-upload-drag-icon">
           <InboxOutlined />
         </p>
-        <p className="ant-upload-text">点击或者拖拽图片到此处进行上传</p>
+        <p className="ant-upload-text">点击或拖拽图片到此处进行上传</p>
         <p className="ant-upload-hint">
           仅支持 .png/.gif/.jpg/.svg 格式的图片，图片大小不能超过1M
         </p>
